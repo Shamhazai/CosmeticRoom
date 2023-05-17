@@ -57,6 +57,7 @@ namespace CosmeticRoom
             this.Validate();
             this.mastersBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.cosmeticRoomDataSet);
+            MessageBox.Show("Данные мастера сохранены!");
         }
     }
 }

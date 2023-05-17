@@ -58,13 +58,22 @@ namespace CosmeticRoom
 
         private void saveB_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.bindingSource1.EndEdit();
-            this.mastersBindingSource1.EndEdit();
-            this.mastersBindingSource.EndEdit();
-            this.mastersTableAdapter.Fill(this.cosmeticRoomDataSet.Masters);
+            if ((serviceNameTextBox.TextLength == 0) || (addressTextBox.TextLength == 0) || (priceMTB.TextLength == 0) || (masterNameComboBox.Items == null))
+            {
+                MessageBox.Show("Заполните все поля!");
+            }
+            else
+            {
 
-            this.tableAdapterManager.UpdateAll(this.cosmeticRoomDataSet);
+                this.Validate();
+                this.bindingSource1.EndEdit();
+                this.mastersBindingSource1.EndEdit();
+                this.mastersBindingSource.EndEdit();
+                this.mastersTableAdapter.Fill(this.cosmeticRoomDataSet.Masters);
+
+                this.tableAdapterManager.UpdateAll(this.cosmeticRoomDataSet);
+                MessageBox.Show("Данные услуги сохранены!");
+            }
         }
     }
 }

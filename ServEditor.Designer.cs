@@ -58,7 +58,6 @@
             this.serviceIDTextBox = new System.Windows.Forms.TextBox();
             this.serviceNameTextBox = new System.Windows.Forms.TextBox();
             this.addressTextBox = new System.Windows.Forms.TextBox();
-            this.priceTextBox = new System.Windows.Forms.TextBox();
             this.mastersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.masterNameComboBox = new System.Windows.Forms.ComboBox();
@@ -66,6 +65,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonBack = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.priceMTB = new System.Windows.Forms.MaskedTextBox();
             serviceIDLabel = new System.Windows.Forms.Label();
             serviceNameLabel = new System.Windows.Forms.Label();
             addressLabel = new System.Windows.Forms.Label();
@@ -341,14 +341,6 @@
             this.addressTextBox.Size = new System.Drawing.Size(100, 20);
             this.addressTextBox.TabIndex = 19;
             // 
-            // priceTextBox
-            // 
-            this.priceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "Price", true));
-            this.priceTextBox.Location = new System.Drawing.Point(179, 169);
-            this.priceTextBox.Name = "priceTextBox";
-            this.priceTextBox.Size = new System.Drawing.Size(100, 20);
-            this.priceTextBox.TabIndex = 21;
-            // 
             // mastersBindingSource1
             // 
             this.mastersBindingSource1.AllowNew = false;
@@ -366,11 +358,11 @@
             this.tableLayoutPanel1.Controls.Add(this.serviceIDTextBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(serviceIDLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(serviceNameLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.priceTextBox, 1, 3);
             this.tableLayoutPanel1.Controls.Add(priceLabel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.serviceNameTextBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(addressLabel, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.addressTextBox, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.priceMTB, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(99, 157);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(16);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -439,6 +431,16 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Вставка, изменение, удаление и сохранение";
             // 
+            // priceMTB
+            // 
+            this.priceMTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "Price", true));
+            this.priceMTB.Location = new System.Drawing.Point(179, 169);
+            this.priceMTB.Mask = "000000";
+            this.priceMTB.Name = "priceMTB";
+            this.priceMTB.Size = new System.Drawing.Size(100, 20);
+            this.priceMTB.TabIndex = 27;
+            this.priceMTB.ValidatingType = typeof(int);
+            // 
             // ServEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,7 +496,6 @@
         private System.Windows.Forms.TextBox serviceIDTextBox;
         private System.Windows.Forms.TextBox serviceNameTextBox;
         private System.Windows.Forms.TextBox addressTextBox;
-        private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonBack;
@@ -503,5 +504,6 @@
         private CosmeticRoomDataSetTableAdapters.MastersTableAdapter mastersTableAdapter;
         private System.Windows.Forms.ComboBox masterNameComboBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MaskedTextBox priceMTB;
     }
 }
