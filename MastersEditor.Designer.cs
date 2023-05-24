@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label masterIDLabel;
             System.Windows.Forms.Label masterNameLabel;
             System.Windows.Forms.Label categoryLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MastersEditor));
@@ -41,7 +40,6 @@
             this.mastersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cosmeticRoomDataSet = new CosmeticRoom.CosmeticRoomDataSet();
             this.masterNameTextBox = new System.Windows.Forms.TextBox();
-            this.masterIDTextBox = new System.Windows.Forms.TextBox();
             this.deleteB = new System.Windows.Forms.Button();
             this.saveB = new System.Windows.Forms.Button();
             this.InsertB = new System.Windows.Forms.Button();
@@ -60,7 +58,13 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mastersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            masterIDLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             masterNameLabel = new System.Windows.Forms.Label();
             categoryLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -68,34 +72,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.cosmeticRoomDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mastersBindingNavigator)).BeginInit();
             this.mastersBindingNavigator.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // masterIDLabel
-            // 
-            masterIDLabel.AutoSize = true;
-            masterIDLabel.Location = new System.Drawing.Point(19, 16);
-            masterIDLabel.Name = "masterIDLabel";
-            masterIDLabel.Size = new System.Drawing.Size(56, 13);
-            masterIDLabel.TabIndex = 0;
-            masterIDLabel.Text = "Master ID:";
             // 
             // masterNameLabel
             // 
             masterNameLabel.AutoSize = true;
-            masterNameLabel.Location = new System.Drawing.Point(19, 66);
+            masterNameLabel.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            masterNameLabel.Location = new System.Drawing.Point(19, 16);
             masterNameLabel.Name = "masterNameLabel";
-            masterNameLabel.Size = new System.Drawing.Size(73, 13);
+            masterNameLabel.Size = new System.Drawing.Size(139, 23);
             masterNameLabel.TabIndex = 34;
-            masterNameLabel.Text = "Master Name:";
+            masterNameLabel.Text = "ФИО мастера:";
             // 
             // categoryLabel
             // 
             categoryLabel.AutoSize = true;
-            categoryLabel.Location = new System.Drawing.Point(19, 116);
+            categoryLabel.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            categoryLabel.Location = new System.Drawing.Point(19, 66);
             categoryLabel.Name = "categoryLabel";
-            categoryLabel.Size = new System.Drawing.Size(52, 13);
+            categoryLabel.Size = new System.Drawing.Size(108, 23);
             categoryLabel.TabIndex = 34;
-            categoryLabel.Text = "Category:";
+            categoryLabel.Text = "Категория:";
             // 
             // label2
             // 
@@ -129,7 +132,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Georgia", 32F);
-            this.label1.Location = new System.Drawing.Point(38, 39);
+            this.label1.Location = new System.Drawing.Point(45, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(613, 49);
             this.label1.TabIndex = 31;
@@ -139,33 +142,30 @@
             // 
             this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.categoryTextBox, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(categoryLabel, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.masterNameTextBox, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(masterNameLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(masterIDLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.masterIDTextBox, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(114, 140);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.39002F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.60998F));
+            this.tableLayoutPanel1.Controls.Add(this.categoryTextBox, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(categoryLabel, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.masterNameTextBox, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(masterNameLabel, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(117, 272);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(16);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(16);
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(245, 282);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(573, 132);
             this.tableLayoutPanel1.TabIndex = 30;
             // 
             // categoryTextBox
             // 
             this.categoryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mastersBindingSource, "Category", true));
-            this.categoryTextBox.Location = new System.Drawing.Point(125, 119);
+            this.categoryTextBox.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.categoryTextBox.Location = new System.Drawing.Point(178, 69);
             this.categoryTextBox.Name = "categoryTextBox";
-            this.categoryTextBox.Size = new System.Drawing.Size(100, 20);
+            this.categoryTextBox.Size = new System.Drawing.Size(149, 22);
             this.categoryTextBox.TabIndex = 35;
             // 
             // mastersBindingSource
@@ -181,18 +181,11 @@
             // masterNameTextBox
             // 
             this.masterNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mastersBindingSource, "MasterName", true));
-            this.masterNameTextBox.Location = new System.Drawing.Point(125, 69);
+            this.masterNameTextBox.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.masterNameTextBox.Location = new System.Drawing.Point(178, 19);
             this.masterNameTextBox.Name = "masterNameTextBox";
-            this.masterNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.masterNameTextBox.Size = new System.Drawing.Size(321, 22);
             this.masterNameTextBox.TabIndex = 35;
-            // 
-            // masterIDTextBox
-            // 
-            this.masterIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mastersBindingSource, "MasterID", true));
-            this.masterIDTextBox.Location = new System.Drawing.Point(125, 19);
-            this.masterIDTextBox.Name = "masterIDTextBox";
-            this.masterIDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.masterIDTextBox.TabIndex = 1;
             // 
             // deleteB
             // 
@@ -271,7 +264,7 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.mastersBindingNavigatorSaveItem});
-            this.mastersBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.mastersBindingNavigator.Location = new System.Drawing.Point(0, 24);
             this.mastersBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.mastersBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.mastersBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -377,13 +370,93 @@
             this.mastersBindingNavigatorSaveItem.Text = "Сохранить данные";
             this.mastersBindingNavigatorSaveItem.Click += new System.EventHandler(this.mastersBindingNavigatorSaveItem_Click);
             // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 4;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.pictureBox3, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.pictureBox4, 3, 0);
+            this.tableLayoutPanel6.Controls.Add(this.pictureBox2, 1, 0);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(117, 132);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(377, 100);
+            this.tableLayoutPanel6.TabIndex = 35;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CosmeticRoom.Properties.Resources.мастер1;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(97, 94);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::CosmeticRoom.Properties.Resources.мастер3;
+            this.pictureBox3.InitialImage = null;
+            this.pictureBox3.Location = new System.Drawing.Point(199, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(80, 94);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::CosmeticRoom.Properties.Resources.мастер41;
+            this.pictureBox4.InitialImage = null;
+            this.pictureBox4.Location = new System.Drawing.Point(285, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(87, 94);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CosmeticRoom.Properties.Resources.мфстер2;
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(106, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(87, 94);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.справкаToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1105, 24);
+            this.menuStrip1.TabIndex = 36;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // справкаToolStripMenuItem
+            // 
+            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.справкаToolStripMenuItem.Text = "Справка";
+            // 
             // MastersEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1105, 617);
+            this.Controls.Add(this.tableLayoutPanel6);
             this.Controls.Add(this.mastersBindingNavigator);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.label1);
@@ -391,8 +464,9 @@
             this.Controls.Add(this.deleteB);
             this.Controls.Add(this.saveB);
             this.Controls.Add(this.InsertB);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MastersEditor";
-            this.Text = "MastersEditor";
+            this.Text = "Редактирование мастеров";
             this.Load += new System.EventHandler(this.MastersEditor_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -401,6 +475,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.mastersBindingNavigator)).EndInit();
             this.mastersBindingNavigator.ResumeLayout(false);
             this.mastersBindingNavigator.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,6 +515,12 @@
         private System.Windows.Forms.ToolStripButton mastersBindingNavigatorSaveItem;
         private System.Windows.Forms.TextBox categoryTextBox;
         private System.Windows.Forms.TextBox masterNameTextBox;
-        private System.Windows.Forms.TextBox masterIDTextBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
     }
 }

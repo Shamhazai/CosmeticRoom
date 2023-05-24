@@ -27,9 +27,12 @@ namespace CosmeticRoom
 
         private void MastersEditor_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "cosmeticRoomDataSet.Masters". При необходимости она может быть перемещена или удалена.
+            // данная строка кода позволяет загрузить данные в таблицу "cosmeticRoomDataSet.Masters". При необходимости она может быть перемещена или удалена.
             this.mastersTableAdapter.Fill(this.cosmeticRoomDataSet.Masters);
 
+            ToolTip tip = new ToolTip();
+            tip.SetToolTip(masterNameTextBox, "Введите имя мастера");
+            tip.SetToolTip(categoryTextBox, "Введите категорию мастера (Первая/Вторая/Третья/Высшая)");
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
@@ -49,7 +52,17 @@ namespace CosmeticRoom
 
         private void deleteB_Click(object sender, EventArgs e)
         {
-            mastersBindingSource.RemoveCurrent();
+            DialogResult result = MessageBox.Show(
+                "Удалить мастера?",
+                "Сообщение",
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Information,
+                 MessageBoxDefaultButton.Button1);
+
+            if (result == DialogResult.Yes)
+            {
+                mastersBindingSource.RemoveCurrent();
+            }
         }
 
         private void saveB_Click(object sender, EventArgs e)

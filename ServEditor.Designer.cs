@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label serviceIDLabel;
             System.Windows.Forms.Label serviceNameLabel;
             System.Windows.Forms.Label addressLabel;
             System.Windows.Forms.Label priceLabel;
@@ -55,18 +54,18 @@
             this.servicesTableAdapter = new CosmeticRoom.CosmeticRoomDataSetTableAdapters.ServicesTableAdapter();
             this.tableAdapterManager = new CosmeticRoom.CosmeticRoomDataSetTableAdapters.TableAdapterManager();
             this.mastersTableAdapter = new CosmeticRoom.CosmeticRoomDataSetTableAdapters.MastersTableAdapter();
-            this.serviceIDTextBox = new System.Windows.Forms.TextBox();
             this.serviceNameTextBox = new System.Windows.Forms.TextBox();
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.mastersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.masterNameComboBox = new System.Windows.Forms.ComboBox();
+            this.priceMTB = new System.Windows.Forms.MaskedTextBox();
             this.mastersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.buttonBack = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.priceMTB = new System.Windows.Forms.MaskedTextBox();
-            serviceIDLabel = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             serviceNameLabel = new System.Windows.Forms.Label();
             addressLabel = new System.Windows.Forms.Label();
             priceLabel = new System.Windows.Forms.Label();
@@ -78,57 +77,48 @@
             ((System.ComponentModel.ISupportInitialize)(this.mastersBindingSource1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mastersBindingSource)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // serviceIDLabel
-            // 
-            serviceIDLabel.AutoSize = true;
-            serviceIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            serviceIDLabel.Location = new System.Drawing.Point(19, 16);
-            serviceIDLabel.Name = "serviceIDLabel";
-            serviceIDLabel.Size = new System.Drawing.Size(72, 16);
-            serviceIDLabel.TabIndex = 15;
-            serviceIDLabel.Text = "Service ID:";
             // 
             // serviceNameLabel
             // 
             serviceNameLabel.AutoSize = true;
-            serviceNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            serviceNameLabel.Location = new System.Drawing.Point(19, 66);
+            serviceNameLabel.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            serviceNameLabel.Location = new System.Drawing.Point(19, 16);
             serviceNameLabel.Name = "serviceNameLabel";
-            serviceNameLabel.Size = new System.Drawing.Size(96, 16);
+            serviceNameLabel.Size = new System.Drawing.Size(166, 23);
             serviceNameLabel.TabIndex = 16;
-            serviceNameLabel.Text = "Service Name:";
+            serviceNameLabel.Text = "Название услуги:";
             // 
             // addressLabel
             // 
             addressLabel.AutoSize = true;
-            addressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            addressLabel.Location = new System.Drawing.Point(19, 116);
+            addressLabel.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            addressLabel.Location = new System.Drawing.Point(19, 64);
             addressLabel.Name = "addressLabel";
-            addressLabel.Size = new System.Drawing.Size(61, 16);
+            addressLabel.Size = new System.Drawing.Size(69, 23);
             addressLabel.TabIndex = 18;
-            addressLabel.Text = "Address:";
+            addressLabel.Text = "Адрес:";
             // 
             // priceLabel
             // 
             priceLabel.AutoSize = true;
-            priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            priceLabel.Location = new System.Drawing.Point(19, 166);
+            priceLabel.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            priceLabel.Location = new System.Drawing.Point(19, 114);
             priceLabel.Name = "priceLabel";
-            priceLabel.Size = new System.Drawing.Size(41, 16);
+            priceLabel.Size = new System.Drawing.Size(62, 23);
             priceLabel.TabIndex = 20;
-            priceLabel.Text = "Price:";
+            priceLabel.Text = "Цена:";
             // 
             // masterNameLabel
             // 
             masterNameLabel.AutoSize = true;
-            masterNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            masterNameLabel.Location = new System.Drawing.Point(19, 216);
+            masterNameLabel.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            masterNameLabel.Location = new System.Drawing.Point(19, 164);
             masterNameLabel.Name = "masterNameLabel";
-            masterNameLabel.Size = new System.Drawing.Size(91, 16);
+            masterNameLabel.Size = new System.Drawing.Size(133, 23);
             masterNameLabel.TabIndex = 25;
-            masterNameLabel.Text = "Master Name:";
+            masterNameLabel.Text = "Имя мастера:";
             // 
             // deleteB
             // 
@@ -192,7 +182,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 24);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -317,28 +307,23 @@
             // 
             this.mastersTableAdapter.ClearBeforeFill = true;
             // 
-            // serviceIDTextBox
-            // 
-            this.serviceIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "ServiceID", true));
-            this.serviceIDTextBox.Location = new System.Drawing.Point(179, 19);
-            this.serviceIDTextBox.Name = "serviceIDTextBox";
-            this.serviceIDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.serviceIDTextBox.TabIndex = 16;
-            // 
             // serviceNameTextBox
             // 
             this.serviceNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "ServiceName", true));
-            this.serviceNameTextBox.Location = new System.Drawing.Point(179, 69);
+            this.serviceNameTextBox.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.serviceNameTextBox.Location = new System.Drawing.Point(191, 19);
+            this.serviceNameTextBox.Multiline = true;
             this.serviceNameTextBox.Name = "serviceNameTextBox";
-            this.serviceNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.serviceNameTextBox.Size = new System.Drawing.Size(251, 42);
             this.serviceNameTextBox.TabIndex = 17;
             // 
             // addressTextBox
             // 
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "Address", true));
-            this.addressTextBox.Location = new System.Drawing.Point(179, 119);
+            this.addressTextBox.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addressTextBox.Location = new System.Drawing.Point(191, 67);
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(100, 20);
+            this.addressTextBox.Size = new System.Drawing.Size(251, 22);
             this.addressTextBox.TabIndex = 19;
             // 
             // mastersBindingSource1
@@ -351,29 +336,26 @@
             // 
             this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.masterNameComboBox, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(masterNameLabel, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.serviceIDTextBox, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(serviceIDLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(serviceNameLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(priceLabel, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.serviceNameTextBox, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(addressLabel, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.addressTextBox, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.priceMTB, 1, 3);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.9921F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.0079F));
+            this.tableLayoutPanel1.Controls.Add(this.masterNameComboBox, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(masterNameLabel, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(serviceNameLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(priceLabel, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(addressLabel, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.priceMTB, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.addressTextBox, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.serviceNameTextBox, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(99, 157);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(16);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(16);
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(352, 282);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(538, 230);
             this.tableLayoutPanel1.TabIndex = 23;
             // 
             // masterNameComboBox
@@ -381,12 +363,24 @@
             this.masterNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource1, "MasterID", true));
             this.masterNameComboBox.DataSource = this.mastersBindingSource1;
             this.masterNameComboBox.DisplayMember = "MasterName";
+            this.masterNameComboBox.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.masterNameComboBox.FormattingEnabled = true;
-            this.masterNameComboBox.Location = new System.Drawing.Point(179, 219);
+            this.masterNameComboBox.Location = new System.Drawing.Point(191, 167);
             this.masterNameComboBox.Name = "masterNameComboBox";
-            this.masterNameComboBox.Size = new System.Drawing.Size(121, 21);
+            this.masterNameComboBox.Size = new System.Drawing.Size(251, 24);
             this.masterNameComboBox.TabIndex = 26;
             this.masterNameComboBox.ValueMember = "MasterID";
+            // 
+            // priceMTB
+            // 
+            this.priceMTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "Price", true));
+            this.priceMTB.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.priceMTB.Location = new System.Drawing.Point(191, 117);
+            this.priceMTB.Mask = "000000";
+            this.priceMTB.Name = "priceMTB";
+            this.priceMTB.Size = new System.Drawing.Size(86, 22);
+            this.priceMTB.TabIndex = 27;
+            this.priceMTB.ValidatingType = typeof(int);
             // 
             // mastersBindingSource
             // 
@@ -431,15 +425,21 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Вставка, изменение, удаление и сохранение";
             // 
-            // priceMTB
+            // menuStrip1
             // 
-            this.priceMTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "Price", true));
-            this.priceMTB.Location = new System.Drawing.Point(179, 169);
-            this.priceMTB.Mask = "000000";
-            this.priceMTB.Name = "priceMTB";
-            this.priceMTB.Size = new System.Drawing.Size(100, 20);
-            this.priceMTB.TabIndex = 27;
-            this.priceMTB.ValidatingType = typeof(int);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.справкаToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1105, 24);
+            this.menuStrip1.TabIndex = 27;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // справкаToolStripMenuItem
+            // 
+            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.справкаToolStripMenuItem.Text = "Справка";
             // 
             // ServEditor
             // 
@@ -452,12 +452,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.bindingNavigator1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.deleteB);
             this.Controls.Add(this.saveB);
             this.Controls.Add(this.InsertB);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "ServEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ServEditor";
+            this.Text = "Редактирование услуг";
             this.Load += new System.EventHandler(this.ServEditor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
@@ -468,6 +470,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mastersBindingSource)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,7 +497,6 @@
         private CosmeticRoomDataSet cosmeticRoomDataSet;
         private CosmeticRoomDataSetTableAdapters.ServicesTableAdapter servicesTableAdapter;
         private CosmeticRoomDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.TextBox serviceIDTextBox;
         private System.Windows.Forms.TextBox serviceNameTextBox;
         private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -505,5 +508,7 @@
         private System.Windows.Forms.ComboBox masterNameComboBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox priceMTB;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
     }
 }

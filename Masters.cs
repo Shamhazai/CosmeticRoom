@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace CosmeticRoom
 {
@@ -39,7 +41,9 @@ namespace CosmeticRoom
                 EditBtn.Visible = true;
             }
 
-
+            ToolTip tip = new ToolTip();
+            tip.SetToolTip(filterComboBox, "Выберете мастера для фильтрации");
+            tip.SetToolTip(searchTextBox, "Введите ключевые слова для поиска");
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
@@ -69,6 +73,7 @@ namespace CosmeticRoom
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
+            int count = 0;
             //перебирает все ячейки таблицы и устанавливает в них белый цвет фона
             // и чёрный цвет текста, то есть отменяет результаты предыдущего поиска
             for (int i = 0; i < dataGridView1.ColumnCount - 1; i++)
@@ -87,12 +92,18 @@ namespace CosmeticRoom
                     {
                         dataGridView1[i, j].Style.BackColor = Color.AliceBlue;
                         dataGridView1[i, j].Style.ForeColor = Color.Blue;
+                        count++;
                     }
                 }
             }
+            if (count == 0)
+            {
+                MessageBox.Show("К сожалению не нашли такого мастера");
+
+            }
         }
 
-        private DataGridViewColumn getSortCol()
+            private DataGridViewColumn getSortCol()
         {
             DataGridViewColumn col = new DataGridViewColumn();
             switch (listBox1.SelectedIndex)

@@ -16,8 +16,7 @@ namespace CosmeticRoom
 {
     public partial class Register : Form
     {
-        //SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CosmeticRoom.Properties.Settings.CosmeticRoom"].ConnectionString);
-
+      
         public Register()
         {
             InitializeComponent();
@@ -46,18 +45,7 @@ namespace CosmeticRoom
                 this.Hide();
                 firstPage.Show();
 
-                //con.Open();
-                //SqlCommand cmd = con.CreateCommand();
-                //cmd.CommandType = CommandType.Text;
-                //cmd.CommandText = "INSERT into Login values ('" + textBox1.Text + "', '" + textBox2.Text + "')";
-                //cmd.ExecuteNonQuery();
-                //con.Close();
-
-                //MessageBox.Show("Wellcome " + textBox1.Text + "! You are Registrated Successfully");
-
-                //Login firstPage = new Login();
-                //this.Hide();
-                //firstPage.Show();
+            
             }
         }
 

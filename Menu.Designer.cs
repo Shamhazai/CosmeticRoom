@@ -32,12 +32,14 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.backBtn = new System.Windows.Forms.Label();
             this.mastersBtn = new System.Windows.Forms.Label();
-            this.registrationsBtn = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.servBtn = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -47,6 +49,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.menuStrip1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -63,7 +66,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.backBtn, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.mastersBtn, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.registrationsBtn, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.servBtn, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
@@ -109,21 +111,6 @@
             this.mastersBtn.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             this.mastersBtn.MouseHover += new System.EventHandler(this.btn_MouseHover);
             // 
-            // registrationsBtn
-            // 
-            this.registrationsBtn.AutoSize = true;
-            this.registrationsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.registrationsBtn.Font = new System.Drawing.Font("Georgia", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.registrationsBtn.Location = new System.Drawing.Point(3, 300);
-            this.registrationsBtn.Name = "registrationsBtn";
-            this.registrationsBtn.Size = new System.Drawing.Size(334, 55);
-            this.registrationsBtn.TabIndex = 11;
-            this.registrationsBtn.Text = "🛒 Заказы";
-            this.registrationsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.registrationsBtn.Click += new System.EventHandler(this.registrationsBtn_Click);
-            this.registrationsBtn.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            this.registrationsBtn.MouseHover += new System.EventHandler(this.btn_MouseHover);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -164,6 +151,22 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Beauty rooms";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.справкаToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(377, 24);
+            this.menuStrip1.TabIndex = 13;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // справкаToolStripMenuItem
+            // 
+            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.справкаToolStripMenuItem.Text = "Справка";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,14 +174,18 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1105, 617);
             this.Controls.Add(this.tableLayoutPanel2);
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(402, 491);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu";
+            this.Text = "Главное меню";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -186,12 +193,13 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label registrationsBtn;
         private System.Windows.Forms.Label mastersBtn;
         private System.Windows.Forms.Label servBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label backBtn;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
     }
 }

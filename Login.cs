@@ -16,28 +16,25 @@ namespace CosmeticRoom
 {
     public partial class Login : Form
     {
-
-        //SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CosmeticRoom.Properties.Settings.CosmeticRoom"].ConnectionString);
         public Login()
         {
             InitializeComponent();
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
 
         private bool UserAuthenticated(string l, string p)
         {
+            // Вызов метода GetLogin у объекта loginTableAdapter, который возвращает результат аутентификации пользователя.
+            // Предполагается, что метод GetLogin возвращает целочисленное значение.
             try
             {
                 int result = (int)loginTableAdapter.GetLogin(l, p);
+                // Если результат аутентификации больше нуля, то пользователь аутентифицирован и возвращается значение true
                 if (result > 0) return true;
             }
             catch (Exception)
             {
+                // Если возникла ошибка при аутентификации (например, исключение), возвращается значение false.
                 return false;
             }
             return false;
@@ -45,34 +42,27 @@ namespace CosmeticRoom
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //con.Open();
-            //SqlCommand cmd = con.CreateCommand();
-            //cmd.CommandType = CommandType.Text;
-            //cmd.CommandText = "select * from Login where UserName = '" + textBox1.Text + "' and Password = '" + textBox2.Text + "'";
-            //cmd.ExecuteNonQuery();
-            //DataTable dt = new DataTable();
-            //SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //da.Fill(dt);
-            //con.Close();
-
-
-
+            // Если пользователь успешно аутентифицирован с помощью метода UserAuthenticated,
+            // выполняются следующие действия:
             if (UserAuthenticated(textBox1.Text, textBox2.Text))
             {
                 Program.login = textBox1.Text;
                 Menu menu = new Menu();
                 menu.WindowState = this.WindowState;
                 this.Hide();
+                // Отображение формы Menu.
                 menu.Show();
             }
             else
             {
+                // Если аутентификация не удалась, выводится сообщение с информацией о некорректном логине или пароле.
                 MessageBox.Show("Некорректные логин или пароль");
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // Закрытие текущей формы.
             this.Close();
         }
 
@@ -81,12 +71,8 @@ namespace CosmeticRoom
             Register registration = new Register();
             registration.WindowState = this.WindowState;
             this.Hide();
+            // Отображение формы Register.
             registration.Show();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

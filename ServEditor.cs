@@ -23,16 +23,16 @@ namespace CosmeticRoom
 
         private void ServEditor_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кда позволяет загрузить данные в таблицу "cosmeticRoomDataSet.Masters". При необходимости она может быть перемещена или удалена.
+            // данная строка кда позволяет загрузить данные в таблицу "cosmeticRoomDataSet.Masters". При необходимости она может быть перемещена или удалена.
             this.mastersTableAdapter.Fill(this.cosmeticRoomDataSet.Masters);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "cosmeticRoomDataSet.Services". При необходимости она может быть перемещена или удалена.
+            // данная строка кода позволяет загрузить данные в таблицу "cosmeticRoomDataSet.Services". При необходимости она может быть перемещена или удалена.
             this.servicesTableAdapter.Fill(this.cosmeticRoomDataSet.Services);
-            //string query = @" SELECT [MasterID],[MasterName] FROM [dbo].[Masters]";
-            //DataTable dt = fillData(query);
-            //comboBox1.DataSource = dt;
-            //comboBox1.DisplayMember = "MasterName";
-            //comboBox1.ValueMember = "MasterID";
-
+            
+            ToolTip tip = new ToolTip();
+            tip.SetToolTip(serviceNameTextBox,"Введите название услуги");
+            tip.SetToolTip(addressTextBox,"Введите адрес");
+            tip.SetToolTip(priceMTB,"Введите цену на услугу(не более 100.000 р.)");
+            tip.SetToolTip(masterNameComboBox,"Выберете имя мастера");
 
         }
 
@@ -53,7 +53,17 @@ namespace CosmeticRoom
 
         private void deleteB_Click(object sender, EventArgs e)
         {
-            bindingSource1.RemoveCurrent();
+            DialogResult result = MessageBox.Show(
+                "Удалить услугу?",
+                "Сообщение",
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Information,
+                 MessageBoxDefaultButton.Button1);
+
+            if (result == DialogResult.Yes)
+            {
+                bindingSource1.RemoveCurrent();
+            }
         }
 
         private void saveB_Click(object sender, EventArgs e)

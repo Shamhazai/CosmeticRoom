@@ -11,12 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Microsoft.Office.Interop.Excel;
 
 namespace CosmeticRoom
 {
     public partial class Service : Form
     {
-
+        // Переменная con содержит строку подключения к базе данных из файла конфигурации.
         string con = ConfigurationManager.ConnectionStrings["CosmeticRoom.Properties.Settings.CosmeticRoom"].ConnectionString;
 
         public Service()
@@ -32,6 +33,7 @@ namespace CosmeticRoom
             // TODO: данная строка кода позволяет загрузить данные в таблицу "cosmeticRoomDataSet.Services". При необходимости она может быть перемещена или удалена.
             this.servicesTableAdapter.Fill(this.cosmeticRoomDataSet.Services);
 
+            // Проверка, является ли текущий пользователь администратором и установка видимости кнопки AddServBtn в зависимости от этого.
             if (!Program.isAdminUser())
             {
                 AddServBtn.Visible = false;
@@ -39,12 +41,12 @@ namespace CosmeticRoom
             {
                 AddServBtn.Visible = true;
             }
-
         }
 
 
         private void AddServBtn_Click(object sender, EventArgs e)
         {
+            // Обработчик события клика на кнопку AddServBtn. Отображает форму ServEditor.
             ServEditor servE = new ServEditor();
             servE.WindowState = this.WindowState;
 
@@ -54,6 +56,7 @@ namespace CosmeticRoom
 
         private void label5_Click(object sender, EventArgs e)
         {
+            // Обработчик события клика на кнопку Назад. Отображает форму Menu.
             Menu menu = new Menu();
             menu.WindowState = this.WindowState;
 
@@ -61,18 +64,16 @@ namespace CosmeticRoom
             menu.Show();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void filterBtn_Click(object sender, EventArgs e)
         {
-            servicesBindingSource.Filter = "MasterID='" + filterComboBox.SelectedValue.ToString() + "'";
+            // Применение фильтра к servicesBindingSource по значению выбранному в filterComboBoxServ.
+            servicesBindingSource.Filter = "MasterID='" + filterComboBoxServ.SelectedValue.ToString() + "'";
         }
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
+            // Счетчик найденных результатов поиска.
+            int count = 0;
             //перебирает все ячейки таблицы и устанавливает в них белый цвет фона
             // и чёрный цвет текста, то есть отменяет результаты предыдущего поиска
             for (int i = 0; i < dataGridView1.ColumnCount - 1; i++)
@@ -87,17 +88,24 @@ namespace CosmeticRoom
             {
                 for (int j = 0; j < dataGridView1.RowCount - 1; j++)
                 {
-                    if (dataGridView1[i, j].Value.ToString().IndexOf(searchTextBox.Text) != -1)
+                    if (dataGridView1[i, j].Value.ToString().IndexOf(searchTextBoxServ.Text) != -1)
                     {
                         dataGridView1[i, j].Style.BackColor = Color.AliceBlue;
                         dataGridView1[i, j].Style.ForeColor = Color.Blue;
+                        count++;
                     }
                 }
+            }
+            // Если ни один результат не найден, выводится сообщение с информацией об отсутствии результатов.
+            if (count == 0)
+            {
+                MessageBox.Show("К сожалению не нашли такую услугу");
             }
         }
 
         private DataGridViewColumn getSortCol()
         {
+            // Возвращает выбранный пользователем столбец сортировки в dataGridView1.
             DataGridViewColumn col = new DataGridViewColumn();
             switch (listBox1.SelectedIndex)
             {
@@ -115,18 +123,43 @@ namespace CosmeticRoom
 
         private void showAllBtn_Click(object sender, EventArgs e)
         {
+            // Удаление фильтра из servicesBindingSource для отображения всех записей.
             servicesBindingSource.RemoveFilter();
         }
 
         private void sortDownBtn_Click(object sender, EventArgs e)
         {
+            // Сортировка dataGridView1 по выбранному столбцу в порядке убывания.
             dataGridView1.Sort(getSortCol(), System.ComponentModel.ListSortDirection.Descending);
         }
 
         private void sortUpBtn_Click(object sender, EventArgs e)
         {
+            // Сортировка dataGridView1 по выбранному столбцу в порядке возрастания.
             dataGridView1.Sort(getSortCol(), System.ComponentModel.ListSortDirection.Ascending);
 
+        }
+
+        private void экспортToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Обработчик события клика на пункт меню "Экспорт". Создает и отображает Excel-приложение и экспортирует данные из dataGridView1 в него.
+            Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+            ExcelApp.Application.Workbooks.Add(Type.Missing);
+            ExcelApp.Columns.ColumnWidth = 15;
+
+            ExcelApp.Cells[1, 1] = "Название";
+            ExcelApp.Cells[1, 2] = "Адрес";
+            ExcelApp.Cells[1, 3] = "Цена";
+            ExcelApp.Cells[1, 4] = "ID мастера";
+
+            for (int i = 0; i < dataGridView1.ColumnCount; i++)
+            {
+                for (int j = 0; j < dataGridView1.RowCount; j++)
+                {
+                    ExcelApp.Cells[j + 2, i + 1] = (dataGridView1[i, j].Value).ToString();
+                }
+            }
+            ExcelApp.Visible = true;
         }
     }
 }
